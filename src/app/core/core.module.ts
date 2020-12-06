@@ -9,6 +9,7 @@ import { PagesState } from '../shared/stores/pages/pages.state';
 import { environment } from '../../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { PageComponent } from './page/page.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [LayoutComponent, PageComponent],
@@ -17,6 +18,7 @@ import { PageComponent } from './page/page.component';
     CommonModule,
     CoreRoutingModule,
     HttpClientModule,
+    MarkdownModule.forRoot(),
     NgxsModule.forRoot([PagesState], {
       developmentMode: !environment.production,
     }),
