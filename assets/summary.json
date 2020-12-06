@@ -1,0 +1,11 @@
+{
+  "author": "Alexandre Sirko",
+  "email": "sirko.alexandre@gmail.com",
+  "title": "Angular 11",
+  "chapters": [
+    {
+      "title": "Introduction",
+      "pages": ["./assets/introduction/opening.md"]
+    }
+  ]
+}
