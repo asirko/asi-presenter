@@ -5,7 +5,11 @@
   "chapters": [
     {
       "title": "Introduction",
-      "pages": ["./assets/introduction/opening.md"]
+      "pages": ["./assets/introduction/opening.md", "./assets/introduction/opening.md"]
+    },
+    {
+      "title": "Introduction 2",
+      "pages": ["./assets/introduction/opening.md", "./assets/introduction/opening.md"]
     }
   ]
 }

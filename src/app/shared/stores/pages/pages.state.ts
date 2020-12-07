@@ -1,6 +1,6 @@
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import { PagesInit, PagesRetrievePage } from './pages.actions';
-import { PagesStateModel } from './pages.model';
+import { PagesInit, PagesRetrievePage, PagesSavePosition } from './pages.actions';
+import { NavInfo, PagesStateModel } from './pages.model';
 import { Observable } from 'rxjs';
 import { PagesService } from './pages.service';
 import { Injectable } from '@angular/core';
@@ -29,16 +29,35 @@ export class PagesState {
   static getMainTitle(state: PagesStateModel): string {
     return state?.title;
   }
-
   @Selector()
   static getChapterTitle(state: PagesStateModel): (index: number) => string {
     return (index: number) => state?.chapters[index].title;
   }
 
   @Selector()
+  static getNavIndexes(state: PagesStateModel): (currentChapterIndex: number, currentPageIndex: number) => NavInfo {
+    return (currentChapterIndex: number, currentPageIndex: number) => {
+      const nav = { prevChapter: null, nextChapter: null, prevPage: null, nextPage: null };
+      if (state && currentPageIndex > 0) {
+        nav.prevPage = [currentChapterIndex, currentPageIndex - 1];
+      }
+      if (state && currentPageIndex < state.chapters[currentChapterIndex].pages.length - 1) {
+        nav.nextPage = [currentChapterIndex, currentPageIndex + 1];
+      }
+      if (state && currentChapterIndex > 0) {
+        nav.prevChapter = [currentChapterIndex - 1, state.previousPageIndexes[currentChapterIndex - 1]];
+      }
+      if (state && currentChapterIndex < state.chapters.length - 1) {
+        nav.nextChapter = [currentChapterIndex + 1, state.previousPageIndexes[currentChapterIndex + 1]];
+      }
+      return nav;
+    };
+  }
+
+  @Selector()
   static getPageContent(state: PagesStateModel): (chapterIndex: number, pageIndex: number) => string {
     return (chapterIndex: number, pageIndex: number) => {
-      if (!state?.chapters[chapterIndex] || !state?.chapters[chapterIndex].pages[pageIndex]) {
+      if (!state || !state.chapters[chapterIndex].pages[pageIndex]) {
         return 'slide is not define in summary';
       }
       return state?.chapters[chapterIndex].pages[pageIndex].content;
@@ -51,7 +70,7 @@ export class PagesState {
   public init(ctx: StateContext<PagesStateModel>): Observable<any> {
     return this.pagesService.getSummary$('./assets/summary.json').pipe(
       tap((summary: PagesStateModel) => {
-        ctx.setState(summary);
+        ctx.setState({ ...summary, previousPageIndexes: summary.chapters.map(() => 0) });
         // retrieve all contents once the summary is retrieved
         summary.chapters.forEach((c, ci) =>
           c.pages.forEach((p, pi) => this.store.dispatch(new PagesRetrievePage(ci, pi))),
@@ -70,5 +89,10 @@ export class PagesState {
       const patchChapters = updateItem(chapterIndex, patch({ pages: patchPages }));
       ctx.setState(patch({ chapters: patchChapters }));
     });
+  }
+
+  @Action(PagesSavePosition)
+  public savePosition(ctx: StateContext<PagesStateModel>, { indexes }: PagesSavePosition): void {
+    ctx.setState(patch({ previousPageIndexes: updateItem(indexes[0], indexes[1]) }));
   }
 }

@@ -10,9 +10,11 @@ import { environment } from '../../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { PageComponent } from './page/page.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { NavigatorComponent } from './navigator/navigator.component';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
-  declarations: [LayoutComponent, PageComponent],
+  declarations: [LayoutComponent, PageComponent, NavigatorComponent],
   imports: [
     BrowserModule,
     CommonModule,
@@ -22,6 +24,7 @@ import { MarkdownModule } from 'ngx-markdown';
     NgxsModule.forRoot([PagesState], {
       developmentMode: !environment.production,
     }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
   bootstrap: [LayoutComponent],
 })

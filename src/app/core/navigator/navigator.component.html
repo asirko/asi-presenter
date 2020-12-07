@@ -1,0 +1,6 @@
+<ng-container *ngIf="navInfo$ | async as navInfo">
+  <button class="up" [disabled]="!navInfo.prevPage" (click)="goTo(navInfo.prevPage)"></button>
+  <button class="down" [disabled]="!navInfo.nextPage" (click)="goTo(navInfo.nextPage)"></button>
+  <button class="left" [disabled]="!navInfo.prevChapter" (click)="goTo(navInfo.prevChapter)"></button>
+  <button class="right" [disabled]="!navInfo.nextChapter" (click)="goTo(navInfo.nextChapter)"></button>
+</ng-container>
