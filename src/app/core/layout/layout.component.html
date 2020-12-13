@@ -1,13 +1,13 @@
 <header>
-  <h1 [innerHTML]="mainTitle$ | async"></h1>
+  <h1 [innerHTML]="mainTitle"></h1>
   <h2 [innerHTML]="chapterTitle$ | async"></h2>
 </header>
 
-<main>
-  <router-outlet></router-outlet>
+<main [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
 </main>
 
 <footer>
-  <div class="author" [innerHTML]="author$ | async"></div>
-  <div class="email" [innerHTML]="email$ | async"></div>
+  <div class="author" [innerHTML]="author"></div>
+  <div class="email" [innerHTML]="email"></div>
 </footer>

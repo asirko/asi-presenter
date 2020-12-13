@@ -1,10 +1,10 @@
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import { PagesInit, PagesRetrievePage, PagesSavePosition } from './pages.actions';
+import { PagesInit, PagesRetrievePage, PagesSavePosition, PagesSetCurrentChapter } from './pages.actions';
 import { NavInfo, PagesStateModel } from './pages.model';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { PagesService } from './pages.service';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { patch, updateItem } from '@ngxs/store/operators';
 
 @State<PagesStateModel>({
@@ -19,19 +19,19 @@ export class PagesState {
   }
   @Selector()
   static getAuthor(state: PagesStateModel): string {
-    return state?.author;
+    return state.author;
   }
   @Selector()
   static getEmail(state: PagesStateModel): string {
-    return state?.email;
+    return state.email;
   }
   @Selector()
   static getMainTitle(state: PagesStateModel): string {
-    return state?.title;
+    return state.title;
   }
   @Selector()
-  static getChapterTitle(state: PagesStateModel): (index: number) => string {
-    return (index: number) => state?.chapters[index].title;
+  static getChapterTitle(state: PagesStateModel): string {
+    return state.chapters[state.currentChapterIndex].title;
   }
 
   @Selector()
@@ -69,30 +69,42 @@ export class PagesState {
   @Action(PagesInit)
   public init(ctx: StateContext<PagesStateModel>): Observable<any> {
     return this.pagesService.getSummary$('./assets/summary.json').pipe(
-      tap((summary: PagesStateModel) => {
+      switchMap((summary: PagesStateModel) => {
         ctx.setState({ ...summary, previousPageIndexes: summary.chapters.map(() => 0) });
         // retrieve all contents once the summary is retrieved
-        summary.chapters.forEach((c, ci) =>
-          c.pages.forEach((p, pi) => this.store.dispatch(new PagesRetrievePage(ci, pi))),
+        const eachContents$ = summary.chapters.reduce(
+          (arr, c, ci) => arr.concat(c.pages.map((p, pi) => this.store.dispatch(new PagesRetrievePage(ci, pi)))),
+          [],
         );
+        return forkJoin(eachContents$);
       }),
     );
   }
 
   @Action(PagesRetrievePage)
-  public retrievePage(ctx: StateContext<PagesStateModel>, { chapterIndex, pageIndex }: PagesRetrievePage): void {
+  public retrievePage(
+    ctx: StateContext<PagesStateModel>,
+    { chapterIndex, pageIndex }: PagesRetrievePage,
+  ): Observable<any> {
     const state = ctx.getState();
     const page = state.chapters[chapterIndex].pages[pageIndex];
 
-    this.pagesService.getContent$(page.src).subscribe((content) => {
-      const patchPages = updateItem(pageIndex, patch({ content }));
-      const patchChapters = updateItem(chapterIndex, patch({ pages: patchPages }));
-      ctx.setState(patch({ chapters: patchChapters }));
-    });
+    return this.pagesService.getContent$(page.src).pipe(
+      tap((content) => {
+        const patchPages = updateItem(pageIndex, patch({ content }));
+        const patchChapters = updateItem(chapterIndex, patch({ pages: patchPages }));
+        ctx.setState(patch({ chapters: patchChapters }));
+      }),
+    );
   }
 
   @Action(PagesSavePosition)
   public savePosition(ctx: StateContext<PagesStateModel>, { indexes }: PagesSavePosition): void {
     ctx.setState(patch({ previousPageIndexes: updateItem(indexes[0], indexes[1]) }));
+  }
+
+  @Action(PagesSetCurrentChapter)
+  public setCurrentChapter(ctx: StateContext<PagesStateModel>, { chapterIndex }: PagesSetCurrentChapter): void {
+    ctx.patchState({ currentChapterIndex: chapterIndex });
   }
 }
