@@ -21,5 +21,13 @@ markdown ::ng-deep {
   h5,
   h6 {
     color: var(--primary-darkest);
+    margin: 20px 0 10px;
+  }
+
+  ul,
+  ol {
+    li {
+      margin: 0 20px;
+    }
   }
 }
