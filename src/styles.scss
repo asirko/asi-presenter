@@ -2,4 +2,18 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light: #f7f7f7;
+  --grey: #adadad;
+  --dark: #34474f;
+  --primary: #d6002f;
+  --primary-dark: #bd002e;
+  --primary-darkest: #800020;
+}
+
+html {
+  background-color: var(--light);
 }

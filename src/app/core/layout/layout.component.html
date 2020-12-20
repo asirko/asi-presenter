@@ -8,6 +8,6 @@
 </main>
 
 <footer>
-  <div class="author" [innerHTML]="author"></div>
-  <div class="email" [innerHTML]="email"></div>
+  <span class="author" [innerHTML]="author"></span>
+  (<a class="email" [href]="'mailto:' + email" [innerHTML]="email"></a>)
 </footer>
