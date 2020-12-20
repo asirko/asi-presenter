@@ -5,11 +5,73 @@
   "chapters": [
     {
       "title": "Introduction",
-      "pages": ["./assets/introduction/opening.md", "./assets/introduction/opening.md"]
+      "pages": [
+        "./assets/1.introduction/1.opening.md",
+        "./assets/1.introduction/2.round-table.md",
+        "./assets/1.introduction/3.summary.md",
+        "./assets/1.introduction/4.project.md"
+      ]
     },
     {
-      "title": "Introduction 2",
-      "pages": ["./assets/introduction/opening.md", "./assets/introduction/opening.md"]
+      "title": "Composants: l'unité de base",
+      "pages": [
+        "./assets/2.component/1.plan.md",
+        "./assets/2.component/2.interpolation.md",
+        "./assets/2.component/3.binding-properties.md",
+        "./assets/2.component/4.binding-event.md",
+        "./assets/2.component/5.io.md",
+        "./assets/2.component/6.transclusion.md",
+        "./assets/2.component/7.view-child.md",
+        "./assets/2.component/8.template-ref.md"
+      ]
+    },
+    {
+      "title": "Reactive forms",
+      "pages": [
+        "./assets/3.reactive-form/1.plan.md",
+        "./assets/3.reactive-form/2.control.md",
+        "./assets/3.reactive-form/3.group.md",
+        "./assets/3.reactive-form/4.array.md",
+        "./assets/3.reactive-form/5.control-value-accessor.md",
+        "./assets/3.reactive-form/6.tips.md"
+      ]
+    },
+    {
+      "title": "Modules et services",
+      "pages": [
+        "./assets/4.modules-services/1.plan.md",
+        "./assets/4.modules-services/2.modules.md",
+        "./assets/4.modules-services/3.DI.md",
+        "./assets/4.modules-services/4.providing.md",
+        "./assets/4.modules-services/5.interceptor.md",
+        "./assets/4.modules-services/6.recommendations.md"
+      ]
+    },
+    {
+      "title": "Routage",
+      "pages": [
+        "./assets/5.router/1.plan.md",
+        "./assets/5.router/2.base.md",
+        "./assets/5.router/3.guard-resolver-data.md",
+        "./assets/5.router/4.lazy-loading.md",
+        "./assets/5.router/5.project-structure.md"
+      ]
+    },
+    {
+      "title": "Test unitaire et e2e",
+      "pages": ["./assets/6.test/1.plan.md"]
+    },
+    {
+      "title": "Éléments d'ouverture",
+      "pages": [
+        "./assets/7.advanced/1.plan.md",
+        "./assets/7.advanced/2.rxjs.md",
+        "./assets/7.advanced/3.redux.md",
+        "./assets/7.advanced/4.monorepo.md",
+        "./assets/7.advanced/5.service-workers.md",
+        "./assets/7.advanced/6.zone-js.md",
+        "./assets/7.advanced/7.builders.md"
+      ]
     }
   ]
 }
