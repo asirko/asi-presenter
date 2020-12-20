@@ -14,6 +14,8 @@ markdown {
 }
 
 markdown ::ng-deep {
+  font-family: "Roboto", arial, sans-serif;
+
   h1,
   h2,
   h3,
@@ -22,6 +24,7 @@ markdown ::ng-deep {
   h6 {
     color: var(--primary-darkest);
     margin: 20px 0 10px;
+    font-family: "Open Sans", arial, sans-serif;
   }
 
   ul,

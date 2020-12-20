@@ -3,8 +3,8 @@
   width: 100vw;
   height: 100vh;
 
-  --header-height: 80px;
-  --footer-height: 44px;
+  --header-height: 98px;
+  --footer-height: 49px;
 }
 
 header {
@@ -12,6 +12,7 @@ header {
   border-bottom: 2px solid var(--primary-darkest);
 }
 main {
+  position: relative;
   height: calc(100vh - var(--footer-height) - var(--header-height));
   overflow: hidden;
 }
@@ -27,6 +28,7 @@ header,
 footer {
   padding: 10px 20px;
   background: var(--primary);
+  font-family: "Open Sans", arial, sans-serif;
 
   &,
   & > * {
