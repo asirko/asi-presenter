@@ -16,6 +16,7 @@ export class LayoutComponent implements OnInit {
   readonly mainTitle = this.store.selectSnapshot(PagesState.getMainTitle);
   readonly author = this.store.selectSnapshot(PagesState.getAuthor);
   readonly email = this.store.selectSnapshot(PagesState.getEmail);
+  readonly logos = this.store.selectSnapshot(PagesState.getLogos);
   readonly chapterTitle$ = this.store.select(PagesState.getChapterTitle);
   readonly chapterProgression$ = this.store.select(PagesState.getChapterProgression);
   readonly mainProgression$ = this.store.select(PagesState.getMainProgression);

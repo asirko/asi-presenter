@@ -9,12 +9,32 @@
 
 header {
   position: relative;
+  display: flex;
   height: var(--header-height);
   padding: 10px 20px;
+
+  .left {
+    flex-grow: 1;
+  }
 
   h1 {
     font-size: 1.1em;
     font-style: italic;
+  }
+
+  .right {
+    display: flex;
+
+    & > * {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  img {
+    max-width: 70px;
+    max-height: 70px;
   }
 
   &:after {
@@ -28,7 +48,6 @@ header {
 main {
   position: relative;
   height: calc(100vh - var(--footer-height) - var(--header-height));
-  padding-left: 14px;
   overflow: hidden;
 
   .progress {

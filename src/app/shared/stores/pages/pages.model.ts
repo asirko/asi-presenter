@@ -12,6 +12,7 @@ export interface PagesStateModel {
   author: string;
   email: string;
   title: string;
+  logos: string[];
   chapters: Chapter[];
   currentChapterIndex?: number;
   currentPageIndex?: number;

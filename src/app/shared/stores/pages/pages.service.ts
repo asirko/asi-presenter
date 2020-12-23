@@ -8,6 +8,7 @@ interface Response {
   author: string;
   email: string;
   title: string;
+  logos: string[];
   chapters: {
     title: string;
     pages: string[];

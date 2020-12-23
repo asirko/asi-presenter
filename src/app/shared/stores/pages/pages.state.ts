@@ -75,6 +75,11 @@ export class PagesState {
     return `${state.currentChapterIndex + 1} / ${state.chapters.length}`;
   }
 
+  @Selector()
+  static getLogos(state: PagesStateModel): string[] {
+    return state.logos;
+  }
+
   constructor(private pagesService: PagesService, private store: Store) {}
 
   @Action(PagesInit)

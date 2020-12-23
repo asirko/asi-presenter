@@ -1,6 +1,13 @@
 <header>
-  <h1 [innerHTML]="mainTitle"></h1>
-  <h2>{{ mainProgression$ | async }}&nbsp;: <span [innerHTML]="chapterTitle$ | async"></span></h2>
+  <div class="left">
+    <h1 [innerHTML]="mainTitle"></h1>
+    <h2>{{ mainProgression$ | async }}&nbsp;: <span [innerHTML]="chapterTitle$ | async"></span></h2>
+  </div>
+  <div class="right">
+    <span *ngFor="let logo of logos">
+      <img [src]="logo" alt="some logo" />
+    </span>
+  </div>
 </header>
 
 <main [@routeAnimations]="prepareRoute(outlet)">

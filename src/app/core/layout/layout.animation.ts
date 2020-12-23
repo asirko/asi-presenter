@@ -8,7 +8,7 @@ function getTransition(horizontalDirection: -1 | 0 | 1, verticalDirection: -1 | 
     query(':enter, :leave', [style({ position: 'absolute', top: 0, left: 0, width: '100%' })], { optional: true }),
     query(':enter', [style(enteringPosition)], { optional: true }),
     group([
-      query(':enter', [animate('300ms ease-out', style({ left: 0, top: 0 }))], { optional: true }),
+      query(':enter', [animate('300ms ease-out', style({ top: 0, left: 0 }))], { optional: true }),
       query(':leave', [animate('300ms ease-out', style(leavingPosition))], { optional: true }),
     ]),
   ];
