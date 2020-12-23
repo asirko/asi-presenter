@@ -21,6 +21,7 @@ export class LayoutComponent implements OnInit {
   readonly mainProgression$ = this.store.select(PagesState.getMainProgression);
 
   private previousRouteParams: { chapterIndex: number; pageIndex: number };
+  private previousTransition: string;
 
   constructor(private store: Store, private router: Router, private route: ActivatedRoute, private title: Title) {}
 
@@ -39,16 +40,17 @@ export class LayoutComponent implements OnInit {
 
     let transition = '';
     if (this.previousRouteParams && this.previousRouteParams.chapterIndex < nextRoute.chapterIndex) {
-      transition = 'right-to-left';
+      transition = this.previousTransition === 'right-to-left' ? 'right-to-left-2' : 'right-to-left';
     } else if (this.previousRouteParams && this.previousRouteParams.chapterIndex > nextRoute.chapterIndex) {
-      transition = 'left-to-right';
+      transition = this.previousTransition === 'left-to-right' ? 'left-to-right-2' : 'left-to-right';
     } else if (this.previousRouteParams && this.previousRouteParams.pageIndex < nextRoute.pageIndex) {
-      transition = 'bottom-to-top';
+      transition = this.previousTransition === 'bottom-to-top' ? 'bottom-to-top-2' : 'bottom-to-top';
     } else if (this.previousRouteParams && this.previousRouteParams.pageIndex > nextRoute.pageIndex) {
-      transition = 'top-to-bottom';
+      transition = this.previousTransition === 'top-to-bottom' ? 'top-to-bottom-2' : 'top-to-bottom';
     }
     // https://angular.io/guide/route-animations
     this.previousRouteParams = nextRoute;
+    this.previousTransition = transition;
     return transition;
   }
 }
