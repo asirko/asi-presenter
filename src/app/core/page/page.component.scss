@@ -1,8 +1,7 @@
 :host {
   display: block;
-  width: 100vw;
   height: calc(100vh - var(--footer-height) - var(--header-height));
-  padding: 40px 20px;
+  padding: 20px;
   overflow-y: auto;
 }
 
@@ -11,6 +10,10 @@ markdown {
   max-width: 800px;
   margin: 0 auto;
   font-size: 20px;
+
+  &::ng-deep:first-child {
+    margin-top: 0;
+  }
 }
 
 markdown ::ng-deep {
@@ -22,9 +25,12 @@ markdown ::ng-deep {
   h4,
   h5,
   h6 {
-    color: var(--primary-darkest);
+    color: var(--primary);
     margin: 20px 0 10px;
     font-family: "Open Sans", arial, sans-serif;
+  }
+  a {
+    color: var(--primary);
   }
 
   ul,

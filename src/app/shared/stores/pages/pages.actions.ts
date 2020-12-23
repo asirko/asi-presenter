@@ -13,7 +13,7 @@ export class PagesSavePosition {
   constructor(public indexes: [number, number]) {}
 }
 
-export class PagesSetCurrentChapter {
+export class PagesSetCurrentIndexes {
   public static readonly type = '[Pages] set the current chapterIndex';
-  constructor(public chapterIndex: number) {}
+  constructor(public chapterIndex: number, public pageIndex: number) {}
 }

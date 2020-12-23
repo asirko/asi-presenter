@@ -1,5 +1,5 @@
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import { PagesInit, PagesRetrievePage, PagesSavePosition, PagesSetCurrentChapter } from './pages.actions';
+import { PagesInit, PagesRetrievePage, PagesSavePosition, PagesSetCurrentIndexes } from './pages.actions';
 import { NavInfo, PagesStateModel } from './pages.model';
 import { forkJoin, Observable } from 'rxjs';
 import { PagesService } from './pages.service';
@@ -64,6 +64,17 @@ export class PagesState {
     };
   }
 
+  @Selector()
+  static getChapterProgression(state: PagesStateModel): number {
+    const chapter = state.chapters[state.currentChapterIndex];
+    return ((state.currentPageIndex + 1) * 100) / chapter.pages.length;
+  }
+
+  @Selector()
+  static getMainProgression(state: PagesStateModel): string {
+    return `${state.currentChapterIndex + 1} / ${state.chapters.length}`;
+  }
+
   constructor(private pagesService: PagesService, private store: Store) {}
 
   @Action(PagesInit)
@@ -103,8 +114,11 @@ export class PagesState {
     ctx.setState(patch({ previousPageIndexes: updateItem(indexes[0], indexes[1]) }));
   }
 
-  @Action(PagesSetCurrentChapter)
-  public setCurrentChapter(ctx: StateContext<PagesStateModel>, { chapterIndex }: PagesSetCurrentChapter): void {
-    ctx.patchState({ currentChapterIndex: chapterIndex });
+  @Action(PagesSetCurrentIndexes)
+  public setCurrentIndexes(
+    ctx: StateContext<PagesStateModel>,
+    { chapterIndex, pageIndex }: PagesSetCurrentIndexes,
+  ): void {
+    ctx.patchState({ currentChapterIndex: chapterIndex, currentPageIndex: pageIndex });
   }
 }

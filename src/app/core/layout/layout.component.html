@@ -1,9 +1,12 @@
 <header>
   <h1 [innerHTML]="mainTitle"></h1>
-  <h2 [innerHTML]="chapterTitle$ | async"></h2>
+  <h2>{{ mainProgression$ | async }}&nbsp;: <span [innerHTML]="chapterTitle$ | async"></span></h2>
 </header>
 
 <main [@routeAnimations]="prepareRoute(outlet)">
+  <div class="progress">
+    <div class="advancement" [style.height.%]="chapterProgression$ | async"></div>
+  </div>
   <router-outlet #outlet="outlet"></router-outlet>
 </main>
 

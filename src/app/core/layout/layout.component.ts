@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { PagesState } from '../../shared/stores/pages/pages.state';
 import { Title } from '@angular/platform-browser';
 import { slideInAnimation } from './layout.animation';
@@ -18,6 +17,8 @@ export class LayoutComponent implements OnInit {
   readonly author = this.store.selectSnapshot(PagesState.getAuthor);
   readonly email = this.store.selectSnapshot(PagesState.getEmail);
   readonly chapterTitle$ = this.store.select(PagesState.getChapterTitle);
+  readonly chapterProgression$ = this.store.select(PagesState.getChapterProgression);
+  readonly mainProgression$ = this.store.select(PagesState.getMainProgression);
 
   private previousRouteParams: { chapterIndex: number; pageIndex: number };
 
@@ -47,7 +48,6 @@ export class LayoutComponent implements OnInit {
       transition = 'top-to-bottom';
     }
     // https://angular.io/guide/route-animations
-    // might need: https://angular.io/api/router/RouteReuseStrategy
     this.previousRouteParams = nextRoute;
     return transition;
   }

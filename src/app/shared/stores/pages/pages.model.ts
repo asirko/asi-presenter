@@ -14,6 +14,7 @@ export interface PagesStateModel {
   title: string;
   chapters: Chapter[];
   currentChapterIndex?: number;
+  currentPageIndex?: number;
   previousPageIndexes?: number[]; // for each chapter keep the last shown page to go back on it
 }
 
