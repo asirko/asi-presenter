@@ -8,16 +8,17 @@
 markdown {
   display: block;
   max-width: 800px;
+  padding-bottom: 150px;
   margin: 0 auto;
   font-size: 20px;
-
-  &::ng-deep:first-child {
-    margin-top: 0;
-  }
 }
 
 markdown ::ng-deep {
   font-family: "Roboto", arial, sans-serif;
+
+  :first-child {
+    margin-top: 0;
+  }
 
   h1,
   h2,
@@ -38,5 +39,37 @@ markdown ::ng-deep {
     li {
       margin: 0 20px;
     }
+  }
+
+  ul + p,
+  ol + p,
+  p + p {
+    margin-top: 30px;
+  }
+
+  img {
+    display: block;
+    padding-top: 20px;
+    margin: auto;
+    max-width: 500px;
+
+    & + em {
+      display: block;
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  p code,
+  ol code,
+  ul code {
+    color: var(--primary);
+    background-color: var(--grey-light);
+    padding: 0 5px;
+  }
+
+  table td {
+    border: 1px solid black;
   }
 }

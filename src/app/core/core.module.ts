@@ -16,9 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomRouteReuseStrategy } from './custom-route-reuse-strategy';
 import { CoreInitializer } from './core.initializer';
+import { ChildComponent } from './layout/child.component';
 
 @NgModule({
-  declarations: [LayoutComponent, PageComponent, NavigatorComponent],
+  declarations: [LayoutComponent, PageComponent, NavigatorComponent, ChildComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
