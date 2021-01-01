@@ -32,7 +32,10 @@
       "pages": [
         "./assets/3.reactive-form/1.plan.md",
         "./assets/3.reactive-form/2.principles.md",
-        "./assets/3.reactive-form/3.control.md",
+        "./assets/3.reactive-form/3a.control.md",
+        "./assets/3.reactive-form/3b.control.md",
+        "./assets/3.reactive-form/3c.control.md",
+        "./assets/3.reactive-form/3d.control.md",
         "./assets/3.reactive-form/4.group.md",
         "./assets/3.reactive-form/5.array.md",
         "./assets/3.reactive-form/6.form-builder.md",

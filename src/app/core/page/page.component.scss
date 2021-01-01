@@ -43,6 +43,10 @@ markdown ::ng-deep {
 
   ul + p,
   ol + p,
+  p + table,
+  table + p,
+  p + pre,
+  pre + p,
   p + p {
     margin-top: 30px;
   }
@@ -69,7 +73,12 @@ markdown ::ng-deep {
     padding: 0 5px;
   }
 
-  table td {
-    border: 1px solid black;
+  table {
+    border-collapse: collapse;
+    td,
+    th {
+      border: 1px solid black;
+      padding: 5px 10px;
+    }
   }
 }
