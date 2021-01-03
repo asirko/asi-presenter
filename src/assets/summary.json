@@ -51,19 +51,28 @@
         "./assets/4.modules-services/3.pipes.md",
         "./assets/4.modules-services/4.directives.md",
         "./assets/4.modules-services/5.DI.md",
-        "./assets/4.modules-services/6.providing.md",
+        "./assets/4.modules-services/6a.providing.md",
+        "./assets/4.modules-services/6b.providing.md",
+        "./assets/4.modules-services/6c.providing.md",
         "./assets/4.modules-services/7.interceptor.md",
-        "./assets/4.modules-services/8.recommendations.md"
+        "./assets/4.modules-services/8.tips.md"
       ]
     },
     {
       "title": "Routage",
       "pages": [
         "./assets/5.router/1.plan.md",
-        "./assets/5.router/2.base.md",
-        "./assets/5.router/3.guard-resolver-data.md",
-        "./assets/5.router/4.lazy-loading.md",
-        "./assets/5.router/5.project-structure.md"
+        "./assets/5.router/2a.base.md",
+        "./assets/5.router/2b.base.md",
+        "./assets/5.router/2c.base.md",
+        "./assets/5.router/3a.guard.md",
+        "./assets/5.router/3b.guard.md",
+        "./assets/5.router/3c.guard.md",
+        "./assets/5.router/4.resolver.md",
+        "./assets/5.router/5.data.md",
+        "./assets/5.router/6.lazy-loading.md",
+        "./assets/5.router/7.project-structure.md",
+        "./assets/5.router/8.tips.md"
       ]
     },
     {
