@@ -22,12 +22,16 @@ export class PagesService {
   constructor(private http: HttpClient) {}
 
   getSummary$(resourceUrl: string): Observable<PagesStateModel> {
-    return this.http.get<Response>(resourceUrl).pipe(
-      map(res => ({
-        ...res,
-        chapters: res.chapters.map(c => ({ ...c, pages: c.pages.map(p => ({ src: p })) })),
-      })),
-    );
+    let params = new HttpParams();
+    params = params.append('time', Date.now().toString());
+    return this.http
+      .get<Response>(resourceUrl, { params })
+      .pipe(
+        map(res => ({
+          ...res,
+          chapters: res.chapters.map(c => ({ ...c, pages: c.pages.map(p => ({ src: p })) })),
+        })),
+      );
   }
 
   getContent$(src: string): Observable<string> {
