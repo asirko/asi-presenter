@@ -17,61 +17,83 @@
       "title": "Composants: l'unité de base",
       "pages": [
         "./assets/2.component/1.plan.md",
-        "./assets/2.component/2.interpolation.md",
-        "./assets/2.component/3.binding-properties.md",
-        "./assets/2.component/4.binding-event.md",
+        "./assets/2.component/2.structure.md",
+        "./assets/2.component/3.html.md",
+        "./assets/2.component/4.life-cycle.md",
         "./assets/2.component/5.io.md",
         "./assets/2.component/6.transclusion.md",
-        "./assets/2.component/7.view-child.md",
-        "./assets/2.component/8.dom-manipulation.md"
+        "./assets/2.component/7.decorators.md",
+        "./assets/2.component/8.dom-manipulation.md",
+        "./assets/2.component/9.tips.md"
       ]
     },
     {
       "title": "Reactive forms",
       "pages": [
         "./assets/3.reactive-form/1.plan.md",
-        "./assets/3.reactive-form/2.control.md",
-        "./assets/3.reactive-form/3.group.md",
-        "./assets/3.reactive-form/4.array.md",
-        "./assets/3.reactive-form/5.control-value-accessor.md",
-        "./assets/3.reactive-form/6.tips.md"
+        "./assets/3.reactive-form/2.principles.md",
+        "./assets/3.reactive-form/3a.control.md",
+        "./assets/3.reactive-form/3b.control.md",
+        "./assets/3.reactive-form/3c.control.md",
+        "./assets/3.reactive-form/3d.control.md",
+        "./assets/3.reactive-form/4.group.md",
+        "./assets/3.reactive-form/5.array.md",
+        "./assets/3.reactive-form/6.form-builder.md",
+        "./assets/3.reactive-form/7.control-value-accessor.md",
+        "./assets/3.reactive-form/8.tips.md"
       ]
     },
     {
-      "title": "Modules et services",
+      "title": "Modules, services et autres éléments",
       "pages": [
         "./assets/4.modules-services/1.plan.md",
         "./assets/4.modules-services/2.modules.md",
-        "./assets/4.modules-services/3.DI.md",
-        "./assets/4.modules-services/4.providing.md",
-        "./assets/4.modules-services/5.interceptor.md",
-        "./assets/4.modules-services/6.recommendations.md"
+        "./assets/4.modules-services/3.pipes.md",
+        "./assets/4.modules-services/4.directives.md",
+        "./assets/4.modules-services/5.DI.md",
+        "./assets/4.modules-services/6a.providing.md",
+        "./assets/4.modules-services/6b.providing.md",
+        "./assets/4.modules-services/6c.providing.md",
+        "./assets/4.modules-services/7.interceptor.md",
+        "./assets/4.modules-services/8.tips.md"
       ]
     },
     {
       "title": "Routage",
       "pages": [
         "./assets/5.router/1.plan.md",
-        "./assets/5.router/2.base.md",
-        "./assets/5.router/3.guard-resolver-data.md",
-        "./assets/5.router/4.lazy-loading.md",
-        "./assets/5.router/5.project-structure.md"
+        "./assets/5.router/2a.base.md",
+        "./assets/5.router/2b.base.md",
+        "./assets/5.router/2c.base.md",
+        "./assets/5.router/3a.guard.md",
+        "./assets/5.router/3b.guard.md",
+        "./assets/5.router/3c.guard.md",
+        "./assets/5.router/4.resolver.md",
+        "./assets/5.router/5.data.md",
+        "./assets/5.router/6.lazy-loading.md",
+        "./assets/5.router/7.project-structure.md",
+        "./assets/5.router/8.tips.md"
       ]
     },
     {
+      "title": "CLI et configuration",
+      "pages": ["./assets/6.cli/1.plan.md"]
+    },
+    {
       "title": "Test unitaire et e2e",
-      "pages": ["./assets/6.test/1.plan.md"]
+      "pages": ["./assets/7.test/1.plan.md"]
     },
     {
       "title": "Éléments d'ouverture",
       "pages": [
-        "./assets/7.advanced/1.plan.md",
-        "./assets/7.advanced/2.rxjs.md",
-        "./assets/7.advanced/3.redux.md",
-        "./assets/7.advanced/4.monorepo.md",
-        "./assets/7.advanced/5.service-workers.md",
-        "./assets/7.advanced/6.zone-js.md",
-        "./assets/7.advanced/7.builders.md"
+        "./assets/8.advanced/1.plan.md",
+        "./assets/8.advanced/2.best-practices.md",
+        "./assets/8.advanced/3.rxjs.md",
+        "./assets/8.advanced/4.redux.md",
+        "./assets/8.advanced/5.monorepo.md",
+        "./assets/8.advanced/6.service-workers.md",
+        "./assets/8.advanced/7.zone-js.md",
+        "./assets/8.advanced/8.builders.md"
       ]
     }
   ]
