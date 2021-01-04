@@ -68,8 +68,8 @@
         "./assets/5.router/3a.guard.md",
         "./assets/5.router/3b.guard.md",
         "./assets/5.router/3c.guard.md",
-        "./assets/5.router/4.resolver.md",
-        "./assets/5.router/5.data.md",
+        "./assets/5.router/4.data.md",
+        "./assets/5.router/5.resolver.md",
         "./assets/5.router/6.lazy-loading.md",
         "./assets/5.router/7.project-structure.md",
         "./assets/5.router/8.tips.md"
