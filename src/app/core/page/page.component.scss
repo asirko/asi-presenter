@@ -14,7 +14,7 @@ markdown {
 }
 
 markdown ::ng-deep {
-  font-family: "Roboto", arial, sans-serif;
+  font-family: 'Roboto', arial, sans-serif;
 
   :first-child {
     margin-top: 0;
@@ -28,7 +28,7 @@ markdown ::ng-deep {
   h6 {
     color: var(--primary);
     margin: 20px 0 10px;
-    font-family: "Open Sans", arial, sans-serif;
+    font-family: 'Open Sans', arial, sans-serif;
   }
   a {
     color: var(--primary);
@@ -41,14 +41,12 @@ markdown ::ng-deep {
     }
   }
 
-  ul + p,
-  ol + p,
-  p + table,
-  table + p,
-  p + pre,
-  pre + p,
-  p + p {
-    margin-top: 30px;
+  > ul,
+  > ol,
+  > table,
+  > pre,
+  > p {
+    margin: 15px 0;
   }
 
   img {
@@ -80,5 +78,11 @@ markdown ::ng-deep {
       border: 1px solid black;
       padding: 5px 10px;
     }
+  }
+
+  blockquote {
+    padding: 10px 10px 10px 20px;
+    background-color: var(--grey-lighter);
+    border-left: 2px solid var(--primary);
   }
 }

@@ -8,6 +8,7 @@
 :root {
   --light: #f7f7f7;
   --grey-light: #ddd;
+  --grey-lighter: #eee;
   --grey: #adadad;
   --dark: #34474f;
   --primary: #d6002f;
@@ -19,4 +20,4 @@ html {
   background-color: var(--light);
 }
 
-@import "./styles/fonts";
+@import './styles/fonts';
