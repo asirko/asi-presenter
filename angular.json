@@ -131,7 +131,6 @@
       "style": "scss",
       "skipTests": true,
       "displayBlock": true,
-      "flat": true,
       "changeDetection": "OnPush"
     },
     "@schematics/angular:class": {

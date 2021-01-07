@@ -77,7 +77,14 @@
     },
     {
       "title": "CLI et configuration",
-      "pages": ["./assets/6.cli/1.plan.md"]
+      "pages": [
+        "./assets/6.cli/1.plan.md",
+        "./assets/6.cli/2.principes.md",
+        "./assets/6.cli/3.new.md",
+        "./assets/6.cli/4.generate.md",
+        "./assets/6.cli/5a.angular-json.md",
+        "./assets/6.cli/5b.angular-json.md"
+      ]
     },
     {
       "title": "Test unitaire et e2e",
