@@ -1,7 +1,7 @@
 {
   "author": "Alexandre Sirko",
   "email": "sirko.alexandre@gmail.com",
-  "title": "Angular 11: intermédiaire",
+  "title": "Angular 14: intermédiaire+",
   "logos": ["./assets/logo-jump.png", "./assets/logo-angular.png"],
   "chapters": [
     {
@@ -24,7 +24,8 @@
         "./assets/2.component/6.transclusion.md",
         "./assets/2.component/7.decorators.md",
         "./assets/2.component/8.dom-manipulation.md",
-        "./assets/2.component/9.tips.md"
+        "./assets/2.component/9.css.md",
+        "./assets/2.component/10.tips.md"
       ]
     },
     {
