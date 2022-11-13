@@ -7,6 +7,10 @@
     {
       "title": "Introduction",
       "pages": ["~/1.introduction/1.opening.md", "~/1.introduction/2.round-table.md", "~/1.introduction/3.summary.md"]
+    },
+    {
+      "title": "Qu'est-ce que GIT",
+      "pages": ["~/2.what/1.what.md", "~/2.what/2.whats-not.md"]
     }
   ]
 }
