@@ -1,0 +1,109 @@
+{
+  "author": "Alexandre Sirko",
+  "email": "sirko.alexandre@gmail.com",
+  "title": "Angular 14: intermédiaire+",
+  "logos": ["~/logo-jump.png", "~/logo-angular.png"],
+  "chapters": [
+    {
+      "title": "Introduction",
+      "pages": [
+        "~/1.introduction/1.opening.md",
+        "~/1.introduction/2.round-table.md",
+        "~/1.introduction/3.summary.md",
+        "~/1.introduction/4.project.md"
+      ]
+    },
+    {
+      "title": "Composants: l'unité de base",
+      "pages": [
+        "~/2.component/1.plan.md",
+        "~/2.component/2.structure.md",
+        "~/2.component/3.html.md",
+        "~/2.component/4.life-cycle.md",
+        "~/2.component/5.io.md",
+        "~/2.component/6.transclusion.md",
+        "~/2.component/7.decorators.md",
+        "~/2.component/8.dom-manipulation.md",
+        "~/2.component/9.css.md",
+        "~/2.component/10.tips.md"
+      ]
+    },
+    {
+      "title": "Reactive forms",
+      "pages": [
+        "~/3.reactive-form/1.plan.md",
+        "~/3.reactive-form/2.principles.md",
+        "~/3.reactive-form/3a.control.md",
+        "~/3.reactive-form/3b.control.md",
+        "~/3.reactive-form/3c.control.md",
+        "~/3.reactive-form/3d.control.md",
+        "~/3.reactive-form/4.group.md",
+        "~/3.reactive-form/5.array.md",
+        "~/3.reactive-form/6.form-builder.md",
+        "~/3.reactive-form/7.control-value-accessor.md",
+        "~/3.reactive-form/8.tips.md"
+      ]
+    },
+    {
+      "title": "Modules, services et autres éléments",
+      "pages": [
+        "~/4.modules-services/1.plan.md",
+        "~/4.modules-services/2.modules.md",
+        "~/4.modules-services/3.pipes.md",
+        "~/4.modules-services/4.directives.md",
+        "~/4.modules-services/5.DI.md",
+        "~/4.modules-services/6a.providing.md",
+        "~/4.modules-services/6b.providing.md",
+        "~/4.modules-services/6c.providing.md",
+        "~/4.modules-services/7.interceptor.md",
+        "~/4.modules-services/8.tips.md"
+      ]
+    },
+    {
+      "title": "Routage",
+      "pages": [
+        "~/5.router/1.plan.md",
+        "~/5.router/2a.base.md",
+        "~/5.router/2b.base.md",
+        "~/5.router/2c.base.md",
+        "~/5.router/3a.guard.md",
+        "~/5.router/3b.guard.md",
+        "~/5.router/3c.guard.md",
+        "~/5.router/4.data.md",
+        "~/5.router/5.resolver.md",
+        "~/5.router/6.lazy-loading.md",
+        "~/5.router/7.project-structure.md",
+        "~/5.router/8.tips.md"
+      ]
+    },
+    {
+      "title": "CLI et configuration",
+      "pages": [
+        "~/6.cli/1.plan.md",
+        "~/6.cli/2.principes.md",
+        "~/6.cli/3.new.md",
+        "~/6.cli/4.generate.md",
+        "~/6.cli/5a.angular-json.md",
+        "~/6.cli/5b.angular-json.md",
+        "~/6.cli/6.add.md"
+      ]
+    },
+    {
+      "title": "Test unitaire et e2e",
+      "pages": ["~/7.test/1.plan.md"]
+    },
+    {
+      "title": "Éléments d'ouverture",
+      "pages": [
+        "~/8.advanced/1.plan.md",
+        "~/8.advanced/2.best-practices.md",
+        "~/8.advanced/3.rxjs.md",
+        "~/8.advanced/4.redux.md",
+        "~/8.advanced/5.monorepo.md",
+        "~/8.advanced/6.service-workers.md",
+        "~/8.advanced/7.zone-js.md",
+        "~/8.advanced/8.builders.md"
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxsModule } from '@ngxs/store';
+import { NgxsModule, Store } from '@ngxs/store';
 import { PagesState } from '../shared/stores/pages/pages.state';
 import { environment } from '../../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,23 +16,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomRouteReuseStrategy } from './custom-route-reuse-strategy';
 import { CoreInitializer } from './core.initializer';
-import { GeneratedComponent } from './layout/generated.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { markedOptionsFactory } from '../shared/conf/MarkedOptions';
+import { SrcPipe, SrcPipeModule } from '../shared/pipes/src.pipe';
 
 @NgModule({
-  declarations: [LayoutComponent, PageComponent, NavigatorComponent, GeneratedComponent],
+  declarations: [LayoutComponent, PageComponent, NavigatorComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
     CoreRoutingModule,
+    SrcPipeModule,
     MarkdownModule.forRoot({
       sanitize: SecurityContext.NONE,
       markedOptions: {
         provide: MarkedOptions,
-        useFactory: markedOptionsFactory,
+        useFactory: (store) => markedOptionsFactory(store),
+        deps: [Store],
       },
     }),
     NgxsModule.forRoot([PagesState], {

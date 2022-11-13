@@ -14,9 +14,10 @@ export interface PagesStateModel {
   title: string;
   logos: string[];
   chapters: Chapter[];
+  course: string;
   currentChapterIndex?: number;
   currentPageIndex?: number;
-  previousPageIndexes?: number[]; // for each chapter keep the last shown page to go back on it
+  previousPageIndexes: number[]; // for each chapter keep the last shown page to go back on it
 }
 
 export interface NavInfo {

@@ -1,6 +1,6 @@
 export class PagesInit {
   public static readonly type = '[Pages] init';
-  constructor() {}
+  constructor(public course: string) {}
 }
 
 export class PagesRetrievePage {

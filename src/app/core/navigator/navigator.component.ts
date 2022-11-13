@@ -25,7 +25,7 @@ export class NavigatorComponent implements OnInit {
   goTo(indexes: [number, number]): void {
     if (indexes) {
       this.store.dispatch(new PagesSavePosition(indexes));
-      this.router.navigate(['/', ...indexes]);
+      this.router.navigate(['/', ...indexes], { queryParamsHandling: 'merge' });
     }
   }
 

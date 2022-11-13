@@ -5,7 +5,7 @@
   </div>
   <div class="right">
     <span *ngFor="let logo of logos">
-      <img [src]="logo" alt="some logo" />
+      <img [src]="logo | src" alt="some logo" />
     </span>
   </div>
 </header>

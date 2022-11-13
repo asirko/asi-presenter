@@ -21,7 +21,7 @@ interface Response {
 export class PagesService {
   constructor(private http: HttpClient) {}
 
-  getSummary$(resourceUrl: string): Observable<PagesStateModel> {
+  getSummary$(resourceUrl: string): Observable<Omit<PagesStateModel, 'course' | 'previousPageIndexes'>> {
     let params = new HttpParams();
     params = params.append('time', Date.now().toString());
     return this.http
