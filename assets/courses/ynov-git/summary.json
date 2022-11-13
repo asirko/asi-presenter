@@ -1,0 +1,12 @@
+{
+  "author": "Alexandre Sirko",
+  "email": "sirko.alexandre@gmail.com",
+  "title": "Les base de GIT",
+  "logos": ["~/logo_ynov.png", "~/git.png"],
+  "chapters": [
+    {
+      "title": "Introduction",
+      "pages": ["~/1.introduction/1.opening.md", "~/1.introduction/2.round-table.md", "~/1.introduction/3.summary.md"]
+    }
+  ]
+}
