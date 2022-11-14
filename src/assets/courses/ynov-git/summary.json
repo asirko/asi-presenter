@@ -10,7 +10,55 @@
     },
     {
       "title": "Qu'est-ce que GIT",
-      "pages": ["~/2.what/1.what.md", "~/2.what/2.whats-not.md"]
+      "pages": [
+        "~/2.what/1.what.md",
+        "~/2.what/2.whats-not.md",
+        "~/2.what/3.install.md",
+        "~/2.what/4.ssh.md",
+        "~/2.what/5.practice.md",
+        "~/2.what/6.bonus.md"
+      ]
+    },
+    {
+      "title": "Les bases",
+      "pages": [
+        "~/3.basics/1.init-clone.md",
+        "~/3.basics/2.commit.md",
+        "~/3.basics/3.branch.md",
+        "~/3.basics/4.tags.md",
+        "~/3.basics/5.practice.md"
+      ]
+    },
+    {
+      "title": "Rebase vs merge",
+      "pages": [
+        "~/4.merge/1.merge.md",
+        "~/4.merge/2.rebase.md",
+        "~/4.merge/3.fast-forward.md",
+        "~/4.merge/4.golden-rule.md",
+        "~/4.merge/5.practice.md"
+      ]
+    },
+    {
+      "title": "Organiser son historique",
+      "pages": [
+        "~/5.history/1.squash.md",
+        "~/5.history/2.reset.md",
+        "~/5.history/3.rebase-interactif.md",
+        "~/5.history/4.rebase-onto.md",
+        "~/5.history/5.practice.md"
+      ]
+    },
+    {
+      "title": "Git Flow",
+      "pages": [
+        "~/6.git-flow/1.philosophy.md",
+        "~/6.git-flow/2.branch-category.md",
+        "~/6.git-flow/3.feature.md",
+        "~/6.git-flow/4.bugs.md",
+        "~/6.git-flow/5.release.md",
+        "~/6.git-flow/6.practice.md"
+      ]
     }
   ]
 }
