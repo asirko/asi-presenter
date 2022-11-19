@@ -3,6 +3,22 @@ import { parsedSrc } from '../pipes/src.pipe';
 import { Store } from '@ngxs/store';
 import { PagesState } from '../stores/pages/pages.state';
 
+// @ts-ignore
+window.global = {};
+declare let global: any;
+global.writeToClip = function toto(element: HTMLElement): void {
+  const body = document.querySelector('body');
+  const area = document.createElement('textarea');
+  body.appendChild(area);
+  area.value = element.querySelector('code').innerText;
+  area.select();
+  document.execCommand('copy');
+
+  body.removeChild(area);
+
+  element.querySelector('button').innerText = 'copied';
+};
+
 // function that returns `MarkedOptions` with renderer override
 export function markedOptionsFactory(store: Store): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -30,12 +46,7 @@ export function markedOptionsFactory(store: Store): MarkedOptions {
   const codeRenderer = renderer.code;
   renderer.code = (code, language) => {
     const html = codeRenderer.call(renderer, code, language);
-    const escapedCode = code
-      .replace(/\n/g, '\\n') // line break
-      .replace(/"/g, '&quot;') // double quote
-      .replace(/'/g, '&quot;'); // single quote
-    const strEvent = `new CustomEvent('copy', { bubbles: true, detail: '${escapedCode}' })`;
-    return html.replace('<pre>', `<pre ondblclick="this.dispatchEvent(${strEvent});">`);
+    return `<div class="code-area" ondblclick="global.writeToClip(this)"><button onclick="global.writeToClip(this.parentNode)">copy</button>${html}</div>`;
   };
 
   return {

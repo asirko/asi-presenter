@@ -11,6 +11,7 @@
   --grey-lighter: #eee;
   --grey: #adadad;
   --dark: #34474f;
+  --primary-light: #ff6687;
   --primary: #d6002f;
   --primary-dark: #bd002e;
   --primary-darkest: #800020;
@@ -22,3 +23,5 @@ html {
 
 @import './styles/shared/fonts';
 @import './styles/shared/base';
+
+@import './styles/shared/modules/code-area';
