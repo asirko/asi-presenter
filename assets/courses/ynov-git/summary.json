@@ -44,11 +44,12 @@
     {
       "title": "Organiser son historique",
       "pages": [
-        "~/5.history/1.squash.md",
-        "~/5.history/2.reset.md",
-        "~/5.history/3.rebase-interactif.md",
-        "~/5.history/4.rebase-onto.md",
-        "~/5.history/5.practice.md"
+        "~/5.history/1.reminder.md",
+        "~/5.history/2.squash.md",
+        "~/5.history/3.reset.md",
+        "~/5.history/4.rebase-interactif.md",
+        "~/5.history/5.rebase-onto.md",
+        "~/5.history/6.practice.md"
       ]
     },
     {
