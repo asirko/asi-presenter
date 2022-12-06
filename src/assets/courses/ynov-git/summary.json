@@ -57,11 +57,8 @@
       "pages": [
         "~/6.git-flow/1.philosophy.md",
         "~/6.git-flow/2.branch-category.md",
-        "~/6.git-flow/3.feature.md",
-        "~/6.git-flow/4.bugs.md",
-        "~/6.git-flow/5.release.md",
-        "~/6.git-flow/6.practice.md",
-        "~/6.git-flow/7.bonus.md"
+        "~/6.git-flow/3.practice.md",
+        "~/6.git-flow/4.bonus.md"
       ]
     }
   ]
