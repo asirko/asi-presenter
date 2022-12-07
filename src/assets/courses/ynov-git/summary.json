@@ -54,12 +54,7 @@
     },
     {
       "title": "Git Flow",
-      "pages": [
-        "~/6.git-flow/1.philosophy.md",
-        "~/6.git-flow/2.branch-category.md",
-        "~/6.git-flow/3.practice.md",
-        "~/6.git-flow/4.bonus.md"
-      ]
+      "pages": ["~/6.git-flow/1.philosophy.md", "~/6.git-flow/2.branch-category.md", "~/6.git-flow/3.bonus.md"]
     }
   ]
 }
