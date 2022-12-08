@@ -33,11 +33,9 @@
       "title": "Quelques patterns récurrents",
       "pages": [
         "~/5.patterns/0.singleton.md",
-        "~/5.patterns/1.observer.md",
-        "~/5.patterns/2.immutability.md",
-        "~/5.patterns/3.redux.md",
-        "~/5.patterns/4.polymorphism.md",
-        "~/5.patterns/5.3-tier.md"
+        "~/5.patterns/1.immutability.md",
+        "~/5.patterns/2.redux.md",
+        "~/5.patterns/3.polymorphism.md"
       ]
     },
     {
@@ -46,7 +44,12 @@
     },
     {
       "title": "Bonus",
-      "pages": ["~/7.bonus/0.restfull.md", "~/7.bonus/1.xml.md", "~/7.bonus/2.functional.md"]
+      "pages": [
+        "~/7.bonus/0.restfull.md",
+        "~/7.bonus/1.xml.md",
+        "~/7.bonus/2.functional.md",
+        "~/7.bonus/3.stateless.md"
+      ]
     }
   ]
 }
