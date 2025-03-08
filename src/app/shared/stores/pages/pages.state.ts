@@ -1,21 +1,15 @@
-import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import {
-  PagesInit,
-  PagesRetrievePage,
-  PagesSavePosition,
-  PagesSetCurrentIndexes,
-} from './pages.actions';
-import { NavInfo, PagesStateModel } from './pages.model';
-import { forkJoin, Observable } from 'rxjs';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { PagesInit, PagesSavePosition, PagesSetCurrentIndexes } from './pages.actions';
+import { Chapter, NavInfo, Page, PagesStateModel } from './pages.model';
+import { firstValueFrom } from 'rxjs';
 import { PagesService } from './pages.service';
 import { Injectable } from '@angular/core';
-import { switchMap, tap } from 'rxjs/operators';
 import { patch, updateItem } from '@ngxs/store/operators';
 import { parsedSrc } from '../../pipes/src.pipe';
 
 @State<PagesStateModel>({
   name: 'pages',
-  defaults: null,
+  defaults: undefined,
 })
 @Injectable()
 export class PagesState {
@@ -40,50 +34,40 @@ export class PagesState {
     return state.course;
   }
   @Selector()
-  static getChapterTitle(state: PagesStateModel): string {
+  static getChapterTitle(state: PagesStateModel | undefined): string {
+    if (!state || (!state.currentChapterIndex && state.currentChapterIndex !== 0)) {
+      return '';
+    }
     return state.chapters[state.currentChapterIndex].title;
   }
 
   @Selector()
-  static getNavIndexes(
-    state: PagesStateModel
-  ): (currentChapterIndex: number, currentPageIndex: number) => NavInfo {
+  static getNavIndexes(state: PagesStateModel): (currentChapterIndex: number, currentPageIndex: number) => NavInfo {
     return (currentChapterIndex: number, currentPageIndex: number) => {
       const nav = {
-        prevChapter: null,
-        nextChapter: null,
-        prevPage: null,
-        nextPage: null,
+        prevChapter: undefined as [number, number] | undefined,
+        nextChapter: undefined as [number, number] | undefined,
+        prevPage: undefined as [number, number] | undefined,
+        nextPage: undefined as [number, number] | undefined,
       };
       if (state && currentPageIndex > 0) {
         nav.prevPage = [currentChapterIndex, currentPageIndex - 1];
       }
-      if (
-        state &&
-        currentPageIndex < state.chapters[currentChapterIndex].pages.length - 1
-      ) {
+      if (state && currentPageIndex < state.chapters[currentChapterIndex].pages.length - 1) {
         nav.nextPage = [currentChapterIndex, currentPageIndex + 1];
       }
       if (state && currentChapterIndex > 0) {
-        nav.prevChapter = [
-          currentChapterIndex - 1,
-          state.previousPageIndexes[currentChapterIndex - 1],
-        ];
+        nav.prevChapter = [currentChapterIndex - 1, state.previousPageIndexes[currentChapterIndex - 1]];
       }
       if (state && currentChapterIndex < state.chapters.length - 1) {
-        nav.nextChapter = [
-          currentChapterIndex + 1,
-          state.previousPageIndexes[currentChapterIndex + 1],
-        ];
+        nav.nextChapter = [currentChapterIndex + 1, state.previousPageIndexes[currentChapterIndex + 1]];
       }
       return nav;
     };
   }
 
   @Selector()
-  static getPageContent(
-    state: PagesStateModel
-  ): (chapterIndex: number, pageIndex: number) => string {
+  static getPageContent(state: PagesStateModel): (chapterIndex: number, pageIndex: number) => string | undefined {
     return (chapterIndex: number, pageIndex: number) => {
       if (!state || !state.chapters[chapterIndex].pages[pageIndex]) {
         return 'slide is not define in summary';
@@ -94,12 +78,21 @@ export class PagesState {
 
   @Selector()
   static getChapterProgression(state: PagesStateModel): number {
+    if (
+      (!state.currentChapterIndex && state.currentChapterIndex !== 0) ||
+      (!state.currentPageIndex && state.currentPageIndex !== 0)
+    ) {
+      return 0;
+    }
     const chapter = state.chapters[state.currentChapterIndex];
     return ((state.currentPageIndex + 1) * 100) / chapter.pages.length;
   }
 
   @Selector()
   static getMainProgression(state: PagesStateModel): string {
+    if (!state.currentChapterIndex && state.currentChapterIndex !== 0) {
+      return 'N-A';
+    }
     return `${state.currentChapterIndex + 1} / ${state.chapters.length}`;
   }
 
@@ -108,74 +101,37 @@ export class PagesState {
     return state.logos;
   }
 
-  constructor(private pagesService: PagesService, private store: Store) {}
+  constructor(private pagesService: PagesService) {}
 
   @Action(PagesInit)
-  public init(
-    ctx: StateContext<PagesStateModel>,
-    { course }: PagesInit
-  ): Observable<any> {
-    return this.pagesService
-      .getSummary$(parsedSrc('~/summary.json', course))
-      .pipe(
-        switchMap((summary: PagesStateModel) => {
-          ctx.setState({
-            ...summary,
-            course,
-            previousPageIndexes: summary.chapters.map(() => 0),
-          });
-          // retrieve all contents once the summary is retrieved
-          const eachContents$ = summary.chapters.reduce(
-            (arr, c, ci) =>
-              arr.concat(
-                c.pages.map((p, pi) =>
-                  this.store.dispatch(new PagesRetrievePage(ci, pi))
-                )
-              ),
-            []
-          );
-          return forkJoin(eachContents$);
-        })
-      );
+  async init(ctx: StateContext<PagesStateModel>, { course }: PagesInit): Promise<void> {
+    const summary = await firstValueFrom(this.pagesService.getSummary$(parsedSrc('~/summary.json', course)));
+    const chapters = await Promise.all(summary.chapters.map(chapter => this.#getChapterContents(chapter, course)));
+    ctx.setState({
+      ...summary,
+      course,
+      chapters,
+      previousPageIndexes: chapters.map(() => 0),
+    });
   }
 
-  @Action(PagesRetrievePage)
-  public retrievePage(
-    ctx: StateContext<PagesStateModel>,
-    { chapterIndex, pageIndex }: PagesRetrievePage
-  ): Observable<any> {
-    const state = ctx.getState();
-    const page = state.chapters[chapterIndex].pages[pageIndex];
+  async #getChapterContents(chapter: Chapter, course: string): Promise<Chapter> {
+    const pages = await Promise.all(chapter.pages.map(page => this.#getPageContent(page, course)));
+    return { ...chapter, pages };
+  }
 
-    return this.pagesService
-      .getContent$(parsedSrc(page.src, state.course))
-      .pipe(
-        tap((content) => {
-          const patchPages = updateItem(pageIndex, patch({ content }));
-          const patchChapters = updateItem(
-            chapterIndex,
-            patch({ pages: patchPages })
-          );
-          ctx.setState(patch({ chapters: patchChapters }));
-        })
-      );
+  async #getPageContent(page: Page, course: string): Promise<Page> {
+    const content = await firstValueFrom(this.pagesService.getContent$(parsedSrc(page.src, course)));
+    return { ...page, content };
   }
 
   @Action(PagesSavePosition)
-  public savePosition(
-    ctx: StateContext<PagesStateModel>,
-    { indexes }: PagesSavePosition
-  ): void {
-    ctx.setState(
-      patch({ previousPageIndexes: updateItem(indexes[0], indexes[1]) })
-    );
+  savePosition(ctx: StateContext<PagesStateModel>, { indexes }: PagesSavePosition): void {
+    ctx.setState(patch({ previousPageIndexes: updateItem(indexes[0], indexes[1]) }));
   }
 
   @Action(PagesSetCurrentIndexes)
-  public setCurrentIndexes(
-    ctx: StateContext<PagesStateModel>,
-    { chapterIndex, pageIndex }: PagesSetCurrentIndexes
-  ): void {
+  setCurrentIndexes(ctx: StateContext<PagesStateModel>, { chapterIndex, pageIndex }: PagesSetCurrentIndexes): void {
     ctx.patchState({
       currentChapterIndex: chapterIndex,
       currentPageIndex: pageIndex,

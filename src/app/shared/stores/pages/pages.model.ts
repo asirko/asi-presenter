@@ -1,4 +1,4 @@
-interface Page {
+export interface Page {
   src: string;
   content?: string;
 }
@@ -21,8 +21,8 @@ export interface PagesStateModel {
 }
 
 export interface NavInfo {
-  prevChapter: [number, number];
-  nextChapter: [number, number];
-  prevPage: [number, number];
-  nextPage: [number, number];
+  prevChapter?: [number, number];
+  nextChapter?: [number, number];
+  prevPage?: [number, number];
+  nextPage?: [number, number];
 }

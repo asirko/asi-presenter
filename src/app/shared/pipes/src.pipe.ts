@@ -1,9 +1,9 @@
-import { NgModule, Pipe, PipeTransform } from '@angular/core';
-import { NgxsModule, Store } from '@ngxs/store';
+import { Pipe, PipeTransform } from '@angular/core';
+import { Store } from '@ngxs/store';
 import { PagesState } from '../stores/pages/pages.state';
 
 export function parsedSrc(baseUrl: string, course: string): string {
-  return baseUrl.replace('~', `./assets/courses/${course}`);
+  return baseUrl.replace('~', `./courses/${course}`);
 }
 
 @Pipe({
@@ -17,10 +17,3 @@ export class SrcPipe implements PipeTransform {
     return parsedSrc(value, course);
   }
 }
-
-@NgModule({
-  declarations: [SrcPipe],
-  exports: [SrcPipe],
-  imports: [NgxsModule],
-})
-export class SrcPipeModule {}

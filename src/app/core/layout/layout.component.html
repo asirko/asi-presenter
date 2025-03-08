@@ -1,12 +1,17 @@
 <header>
   <div class="left">
     <h1 [innerHTML]="mainTitle"></h1>
-    <h2>{{ mainProgression$ | async }}&nbsp;: <span [innerHTML]="chapterTitle$ | async"></span></h2>
+    <h2>
+      {{ mainProgression$ | async }}&nbsp;:
+      <span [innerHTML]="chapterTitle$ | async"></span>
+    </h2>
   </div>
   <div class="right">
-    <span *ngFor="let logo of logos">
-      <img [src]="logo | src" alt="some logo" />
-    </span>
+    @for (logo of logos; track logo) {
+      <span>
+        <img [src]="logo | src" alt="some logo" />
+      </span>
+    }
   </div>
 </header>
 
@@ -19,5 +24,7 @@
 
 <footer>
   <span class="author" [innerHTML]="author"></span>
-  (<a class="email" [href]="'mailto:' + email" [innerHTML]="email"></a>)
+  (
+  <a class="email" [href]="'mailto:' + email" [innerHTML]="email"></a>
+  )
 </footer>

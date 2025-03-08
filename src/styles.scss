@@ -1,4 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/shared/fonts';
+@use './styles/shared/base';
+
+@use './styles/shared/modules/code-area';
+
 * {
   padding: 0;
   margin: 0;
@@ -20,8 +24,3 @@
 html {
   background-color: var(--light);
 }
-
-@import './styles/shared/fonts';
-@import './styles/shared/base';
-
-@import './styles/shared/modules/code-area';
