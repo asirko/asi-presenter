@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
 import { PageComponent } from './page/page.component';
 
+export const DEFAULT_COURSE = 'esgi-angular';
+
 export const routes: Routes = [
   {
-    pathMatch: 'full',
     path: '',
-    redirectTo: '0/0',
+    pathMatch: 'full',
+    redirectTo: `${DEFAULT_COURSE}/0/0`,
   },
   {
-    path: ':chapterIndex/:pageIndex',
+    path: ':course/:chapterIndex/:pageIndex',
     component: PageComponent,
   },
 ];

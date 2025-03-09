@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { provideRouter, RouteReuseStrategy } from '@angular/router';
 
-import { routes } from './core.routes';
+import { DEFAULT_COURSE, routes } from './core.routes';
 import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
 import { withNgxsLoggerPlugin } from '@ngxs/logger-plugin';
 import { provideStore, Store } from '@ngxs/store';
@@ -34,10 +34,10 @@ export const coreConfig: ApplicationConfig = {
       withNgxsLoggerPlugin({ disabled: environment.production }),
     ),
     provideAnimationsAsync(),
-    provideAppInitializer(() => {
+    provideAppInitializer(async () => {
       const store = inject(Store);
-      const course = new URL(window.location.href).searchParams.get('course') || 'angular';
-      return firstValueFrom(store.dispatch(new PagesInit(course)));
+      const course = new URL(window.location.href).pathname.split('/')[2];
+      await firstValueFrom(store.dispatch(new PagesInit(course || DEFAULT_COURSE)));
     }),
     provideMarkdown({
       sanitize: SecurityContext.NONE,

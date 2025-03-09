@@ -26,7 +26,7 @@ export class NavigatorComponent {
   goTo(indexes: [number, number] | undefined): void {
     if (indexes) {
       this.#store.dispatch(new PagesSavePosition(indexes));
-      this.#router.navigate(['/', ...indexes], { queryParamsHandling: 'merge' });
+      this.#router.navigate(['/', this.#route.snapshot.params['course'], ...indexes], { queryParamsHandling: 'merge' });
     }
   }
 
