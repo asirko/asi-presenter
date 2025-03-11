@@ -29,7 +29,17 @@
     },
     {
       "title": "Routage basique",
-      "pages": []
+      "pages": [
+        "~/03.routage-basic/01.intro.md",
+        "~/03.routage-basic/02.component-ftw.md",
+        "~/03.routage-basic/03.gc.md",
+        "~/03.routage-basic/04.why-routing.md",
+        "~/03.routage-basic/05.how-to-route.md",
+        "~/03.routage-basic/06.layout.md",
+        "~/03.routage-basic/07.path-params.md",
+        "~/03.routage-basic/08.query-params.md",
+        "~/03.routage-basic/09.conclusion.md"
+      ]
     },
     {
       "title": "Composant : la brique de base",
