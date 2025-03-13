@@ -1,0 +1,81 @@
+{
+  "author": "Alexandre Sirko",
+  "email": "alexandre.sirko@fuzeo.fr",
+  "title": "Développement front-end avec Angular",
+  "logos": ["~/logo-fuzeo.png", "~/logo-angular.png"],
+  "chapters": [
+    {
+      "title": "Introduction",
+      "pages": [
+        "~/01.introduction/1.opening.md",
+        "~/01.introduction/2.round-table.md",
+        "~/01.introduction/3.summary.md",
+        "~/01.introduction/4.project.md"
+      ]
+    },
+    {
+      "title": "Structure du projet et conception",
+      "pages": [
+        "~/02.structure-conception/01.intro.md",
+        "~/02.structure-conception/02.cli.md",
+        "~/02.structure-conception/03.new.md",
+        "~/02.structure-conception/04.features.md",
+        "~/02.structure-conception/05.ng-features.md",
+        "~/02.structure-conception/06.more-cli.md",
+        "~/02.structure-conception/07.structure.md",
+        "~/02.structure-conception/08.conclusion.md",
+        "~/02.structure-conception/09.conception.md"
+      ]
+    },
+    {
+      "title": "Routage basique",
+      "pages": [
+        "~/03.routage-basic/01.intro.md",
+        "~/03.routage-basic/02.component-ftw.md",
+        "~/03.routage-basic/03.gc.md",
+        "~/03.routage-basic/04.why-routing.md",
+        "~/03.routage-basic/05.how-to-route.md",
+        "~/03.routage-basic/06.layout.md",
+        "~/03.routage-basic/07.path-params.md",
+        "~/03.routage-basic/08.query-params.md",
+        "~/03.routage-basic/09.conclusion.md"
+      ]
+    },
+    {
+      "title": "Composant : la brique de base",
+      "pages": []
+    },
+    {
+      "title": "Service et injection de dependence",
+      "pages": []
+    },
+    {
+      "title": "Formulaires",
+      "pages": []
+    },
+    {
+      "title": "Routage avancé",
+      "pages": []
+    },
+    {
+      "title": "Communication avec le back-end",
+      "pages": []
+    },
+    {
+      "title": "Stocker des information dans le front-end",
+      "pages": []
+    },
+    {
+      "title": "Tests unitaires et e2e",
+      "pages": []
+    },
+    {
+      "title": "Concepts avancés",
+      "pages": []
+    },
+    {
+      "title": "Design et accessibilité",
+      "pages": []
+    }
+  ]
+}
