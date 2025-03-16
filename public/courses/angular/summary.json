@@ -29,7 +29,7 @@
       ]
     },
     {
-      "title": "Reactive forms",
+      "title": "ReactiveForms",
       "pages": [
         "~/3.reactive-form/1.plan.md",
         "~/3.reactive-form/2.principles.md",

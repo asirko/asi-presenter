@@ -5,7 +5,7 @@ import {
   provideZoneChangeDetection,
   SecurityContext,
 } from '@angular/core';
-import { provideRouter, RouteReuseStrategy } from '@angular/router';
+import { PreloadAllModules, provideRouter, RouteReuseStrategy, withPreloading } from '@angular/router';
 
 import { DEFAULT_COURSE, routes } from './core.routes';
 import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
@@ -26,7 +26,7 @@ console.log(environment);
 export const coreConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideHttpClient(),
     provideStore(
       [PagesState],

@@ -9,8 +9,9 @@
       "pages": [
         "~/01.introduction/1.opening.md",
         "~/01.introduction/2.round-table.md",
-        "~/01.introduction/3.summary.md",
-        "~/01.introduction/4.project.md"
+        "~/01.introduction/3.problematic.md",
+        "~/01.introduction/4.summary.md",
+        "~/01.introduction/5.project.md"
       ]
     },
     {
@@ -43,19 +44,65 @@
     },
     {
       "title": "Composant : la brique de base",
-      "pages": []
+      "pages": [
+        "~/04.composant/01.intro.md",
+        "~/04.composant/02.component-ftw2.md",
+        "~/04.composant/03.w3c-standard.md",
+        "~/04.composant/04.w3c-standard-example.md",
+        "~/04.composant/05.ng-compo-decorator.md",
+        "~/04.composant/06.ng-compo-template-interpolation.md",
+        "~/04.composant/07.ng-compo-template-condition.md",
+        "~/04.composant/08.ng-compo-template-binding.md",
+        "~/04.composant/09.ng-compo-life-cycle.md",
+        "~/04.composant/10.ng-compo-signal.md",
+        "~/04.composant/11.ng-compo-input.md",
+        "~/04.composant/12.ng-compo-output.md",
+        "~/04.composant/13.ng-compo-view-child.md",
+        "~/04.composant/14.style-encapsulation.md",
+        "~/04.composant/15.conclusion.md"
+      ]
     },
     {
       "title": "Service et injection de dependence",
-      "pages": []
+      "pages": [
+        "~/05.service-DI/01.intro.md",
+        "~/05.service-DI/02.problematic.md",
+        "~/05.service-DI/03.create-service.md",
+        "~/05.service-DI/04.state-management.md",
+        "~/05.service-DI/05.inject.md",
+        "~/05.service-DI/06.why-DI.md",
+        "~/05.service-DI/07.http.md"
+      ]
     },
     {
       "title": "Formulaires",
-      "pages": []
+      "pages": [
+        "~/06.formulaire/01.intro.md",
+        "~/06.formulaire/02.differences.md",
+        "~/06.formulaire/03.template-form.md",
+        "~/06.formulaire/04.reactive-form-control.md",
+        "~/06.formulaire/05.reactive-form-group.md",
+        "~/06.formulaire/06.reactive-form-validation.md",
+        "~/06.formulaire/07.reactive-form-traversing.md",
+        "~/06.formulaire/08.reactive-form-custom-validator.md",
+        "~/06.formulaire/09.conclusion.md"
+      ]
     },
     {
       "title": "Routage avancé",
-      "pages": []
+      "pages": [
+        "~/07.routage-avance/01.intro.md",
+        "~/07.routage-avance/02.router-config.md",
+        "~/07.routage-avance/03.nested-routes.md",
+        "~/07.routage-avance/04.navigate-to.md",
+        "~/07.routage-avance/05.activated-route.md",
+        "~/07.routage-avance/06.relative-nav.md",
+        "~/07.routage-avance/07.guard.md",
+        "~/07.routage-avance/08.resolver.md",
+        "~/07.routage-avance/09.nav-event.md",
+        "~/07.routage-avance/10.lazy-loading.md",
+        "~/07.routage-avance/11.conclusion.md"
+      ]
     },
     {
       "title": "Communication avec le back-end",
@@ -63,10 +110,6 @@
     },
     {
       "title": "Stocker des information dans le front-end",
-      "pages": []
-    },
-    {
-      "title": "Tests unitaires et e2e",
       "pages": []
     },
     {

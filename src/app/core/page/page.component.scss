@@ -16,8 +16,20 @@ markdown {
 markdown ::ng-deep {
   font-family: 'Roboto', arial, sans-serif;
 
+  ul,
+  ol,
+  table,
+  pre,
+  p,
+  .code-area {
+    margin: 15px 0;
+  }
+
   :first-child {
     margin-top: 0;
+  }
+  :last-child {
+    margin-bottom: 0;
   }
 
   h1,
@@ -39,14 +51,6 @@ markdown ::ng-deep {
     li {
       margin: 0 20px;
     }
-  }
-
-  > ul,
-  > ol,
-  > table,
-  > pre,
-  > p {
-    margin: 15px 0;
   }
 
   img {
@@ -83,6 +87,6 @@ markdown ::ng-deep {
   blockquote {
     padding: 10px 10px 10px 20px;
     background-color: var(--grey-lighter);
-    border-left: 2px solid var(--primary);
+    border-left: 3px solid var(--primary);
   }
 }
