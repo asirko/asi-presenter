@@ -106,7 +106,14 @@
     },
     {
       "title": "Communication avec le back-end",
-      "pages": []
+      "pages": [
+        "~/08.http-rest/01.intro.md",
+        "~/08.http-rest/02.rest.md",
+        "~/08.http-rest/03.http.md",
+        "~/08.http-rest/04.interceptor.md",
+        "~/08.http-rest/05.errors.md",
+        "~/08.http-rest/06.problematic.md"
+      ]
     },
     {
       "title": "Stocker des information dans le front-end",
