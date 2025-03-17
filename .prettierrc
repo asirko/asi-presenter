@@ -2,7 +2,7 @@
   "singleQuote": true,
   "trailingComma": "all",
   "printWidth": 120,
-  "htmlWhitespaceSensitivity": "ignore",
+  "htmlWhitespaceSensitivity": "strict",
   "arrowParens": "avoid",
   "endOfLine": "auto",
   "bracketSameLine": true

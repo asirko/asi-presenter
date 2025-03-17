@@ -1,0 +1,127 @@
+:host {
+  display: block;
+}
+
+.sun {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background-color: transparent;
+  transform-origin: center;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:before {
+    width: 40%;
+    height: 40%;
+    top: 50%;
+    left: 50%;
+    background-color: #e6e617;
+  }
+
+  &:after {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 64%;
+    background-color: black;
+  }
+}
+
+.ray {
+  width: 15%;
+  height: 2px;
+  background-color: #e6e617;
+  position: absolute;
+  top: 50%;
+  left: 77.5%;
+  transform-origin: calc(-27.5% / 0.15) 0;
+}
+.ray:nth-child(1) {
+  transform: rotate(30deg);
+}
+.ray:nth-child(2) {
+  transform: rotate(90deg);
+}
+.ray:nth-child(3) {
+  transform: rotate(150deg);
+}
+.ray:nth-child(4) {
+  transform: rotate(-30deg);
+}
+.ray:nth-child(5) {
+  transform: rotate(-90deg);
+}
+.ray:nth-child(6) {
+  transform: rotate(-150deg);
+}
+
+.moon {
+  background-color: black;
+}
+
+.moon:before {
+  background-color: white;
+  transform: translate(-50%, -50%) scale(1.8);
+}
+
+.moon:after {
+  width: 50%;
+  height: 50%;
+}
+
+.moon,
+.moon:before,
+.moon:after {
+  transition: 1.5s 1.5s;
+}
+
+.sun:not(.moon),
+.sun:not(.moon):before,
+.sun:not(.moon):after {
+  transition: 1.5s;
+}
+
+@keyframes hideRays {
+  50% {
+    transform: rotate(0);
+    background-color: #e6e617;
+  }
+  60% {
+    transform: rotate(0);
+    background-color: transparent;
+  }
+  100% {
+    transform: rotate(0);
+    background-color: transparent;
+  }
+}
+
+@keyframes showRays {
+  50% {
+    transform: rotate(0);
+    background-color: #e6e617;
+  }
+  60% {
+    transform: rotate(0);
+    background-color: transparent;
+  }
+  100% {
+    transform: rotate(0);
+    background-color: transparent;
+  }
+}
+
+.moon .ray {
+  animation: hideRays 3s forwards;
+}
+.sun:not(.moon) .ray {
+  animation: showRays 3s reverse;
+}
